@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> Jennifer Niri Jeffrey - INS205 Assessment </title>
+        <style>
+            body {
+                font-family:Georgia, 'Times New Roman', Times, serif;
+                background-color: #f4f4;
+                margin: 0;
+                padding: 20px;
+            }
+            .container {
+                max-width: 800px;
+                margin: auto;
+                background: white;
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(red, green, blue, alpha);
+            }
+            h1 {
+                text-align: center;
+                color: #333;
+            }
+            h2 {
+                color: #444;
+            }
+            #send-btn {
+                padding: 12px 20px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                color: white;
+                font-size: 16px;
+            }
+            a {
+                text-decoration: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1> My Personal Profile</h1>
+            <h2> About Me</h2>
+            <p><strong> Name:</strong> Jennifer Niri Jeffrey</p>
+            <p><strong> Course:</strong> Computer Science</p>
+            <p><strong> Level:</strong>200 Level</p>
+            <p ><strong> Hobbies:</strong> I love crocheting, Reading, and listening to audiobooks. 
+                I also enjoy sketching random things i find on pinterest and enjoy watching animes. </p>
+            <p><strong> Interests</strong> Web development has my peak interest and thats why i'm studying this course, also interested in content creation and advanced tech.
+             </p>
+            <h2> Contact Me</h2>
+            <a href="mailto: 2025CP0465@unijos.edu.ng">
+                <button id="send-btn"> Send  Email</button>
+            </a>
+        </div>
+script>
+        /* -------------------------------------------------------
+           Matric-number → button colour
+           Replace the matric value below with your own number.
+           ------------------------------------------------------- */
+        const matric = "UJ/2025/CP/0465"; // <-- CHANGE THIS TO YOUR MAT. NO.
+
+	/* CHANGE NOTHING BEYOND THIS POINT - CHANGE NOTHING BEYOND THIS POINT */ 
+
+        function hashString(str) {
+            let hash = 0;
+            for (let i = 0; i < str.length; i++) {
+                hash = (hash * 31 + str.charCodeAt(i)) >>> 0;
+            }
+            return hash;
+        }
+
+        // Normalise input
+        const normalised = matric.trim().toUpperCase();
+
+        // Map the hash to a hue value between 0 and 359 degrees
+        const hue = hashString(normalised) % 360;
+
+        // Build an HSL colour: fixed saturation & lightness, varying hue
+        const buttonColour = `hsl(${hue}, 65%, 45%)`;
+
+        // Apply the colour to the Send Email button
+        document.getElementById("send-btn").style.background = buttonColour;
+    </script>
+
+    </body>
+</html>
